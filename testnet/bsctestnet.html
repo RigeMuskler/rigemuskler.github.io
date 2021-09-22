@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Crypto Flex Club</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="crypto flex club, bnb club, exclusive crypto club">
+	<meta name="description" content="The most exclusive crypto club. Only 100 members. Flex your crypto muscle!">
+
+	<!-- stylesheet css -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bsc.css">
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+
+<!-- preloader section -->
+<div class="preloader">
+	<div class="sk-spinner sk-spinner-wordpress">
+       <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!--for alerts -->
+<div name="alertDiv" id="alertDiv"></div> 
+
+<!-- if JavaScript is not enabled -->
+<noscript>
+    <div class="alert alert-danger" role="alert">
+		<p style="text-align:center">JavaScript Not Enabled. This Page only works with JavaScript enabled. &nbsp <span> <a href="#" data-dismiss="alert" class="badge badge-info"> Close</a></span></p>
+	</div>
+</noscript>
+	
+<div class="row">
+	<div class="col-md-12 col-sm-12">
+	    <hr>
+		<span><button type="button" class="btn btn-secondary" name="connectWalletButton" id="connectWalletButton" >Connect Wallet</button>
+		<button type="button" class="btn btn-success" name="connectedWalletButton" id="connectedWalletButton" style="display: none" disabled>Connected...</button>
+		<a href="ethtestnet.html"><button class="btn btn-outline-success" type="button">Switch to ETH</button></a></span>
+		<hr>
+		
+	</div>
+</div>
+
+
+
+<!-- status and accountInfo section -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+			<div class="status" name="statusDiv" id="statusDiv" style="display: none">
+				<h4 class="accent">Profile Holder Status</h4>
+				<p name="statusUpdateTime" id="statusUpdateTime">Updated date </p> <p name="statusAmount" id="statusAmount">Amount 0.00 BNB</p>
+				<p name="statusAddress" id="statusAddress">Address: address of the profile holder</p>
+				<p name="statusText" id="statusText">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+				
+				<button name="updateStatusModalButton" id="updateStatusModalButton" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateStatusModal">Update Status</button>
+				
+			</div>
+			
+			<!--Displayed When Wallet Not Connected -->
+			<div class="status" name="statusSpinnerDiv" id="statusSpinnerDiv">
+				<h4 class="accent">Profile Holder Status</h4>
+				<div>
+				 <hr>
+				</div>
+				<div class="form-group basic">
+                    <p><center><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> connect wallet...</center></p>
+                </div>
+				<hr>
+				<p style="text-align:center"> Kindly Connect Your Wallet.</p>
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-12">
+			<div class="accountInfo" name="accountInfoDiv" id="accountInfoDiv" style="display: none">
+				<h4 class="white">My Account Info</h4>
+				<strong>Club Membership</strong>
+				<span class="pull-right"><p id="isMember">Not A Member / Member</p></span>
+					<div>
+						<hr>
+					</div>
+				<strong>Pending Refund</strong>
+				<span class="pull-right"><p id="pendingRefund"> Amount in BNB</p></span>
+					<div>
+						<hr>
+					</div>
+				<strong>Profile Active Period</strong>
+				<span class="pull-right"><p id="activePeriod"> time in Secs/ days</p></span>
+					<div>
+						<hr>
+					</div>
+				<strong>Time Remaining Before Can Join Club</strong>
+				<span class="pull-right"><p id="periodRemaining"> time in Secs / days</p></span>
+					<div>
+					</div>
+			</div>
+			
+			<!-- when not connected -->
+			
+			<div class="accountInfo" name="accountInfoSpinnerDiv" id="accountInfoSpinnerDiv">
+				<h4 class="white">My Account Info</h4>
+				<div>
+				 <hr>
+				</div>
+				<div class="form-group basic">
+                    <p><center><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> connect wallet...</center></p>
+                </div>
+				<hr>
+				<p  style="text-align:center"> Kindly Connect Your Wallet.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- clubInfo and tools -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-8 col-sm-12">
+			<div class="clubInfo" name="clubInfoDiv" id="clubInfoDiv" style="display:none">
+				<h3 class="white">Club Information | The Most Exclusive Crypto Club</h3> 
+			
+				<strong>Members</strong>
+				<span class="pull-right"><p id="numMembers"> X / 100 Memebers</p></span>
+					<div>
+						<hr>
+					</div>
+				<strong>Current Profile Stake</strong>
+				<span class="pull-right"><p id="stakeAmount"> X BNB</p></span>
+					<div>
+						<hr>
+					</div>
+				<strong>Profile Active Period Required</strong>
+				<span class="pull-right"><p id="periodRequired"> time in Secs</p></span>
+					<div>
+						<hr>
+					</div>
+				<strong>Set Profile Fees</strong>
+				<span class="pull-right"><p id="profileFee"> 0.1%</p></span>
+					
+			</div>
+			
+			<!-- when not connected -->
+			<div class="clubInfo" name="clubInfoDivSpinner" id="clubInfoDivSpinner">
+				<h3 class="white">Club Information | The Most Exclusive Crypto Club</h3> 
+				<div>
+				 <hr>
+				</div>
+				<div class="form-group basic">
+                    <p><center><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> connect wallet...</center></p>
+                </div>
+				<hr>
+				<p style="text-align:center"> Kindly Connect Your Wallet.</p>
+						
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-12">
+			<div class="tools" name="toolsDiv" id="toolsDiv" style="display: none">
+				<h2>Tools</h2>
+					<ul>
+						<li> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#updateStatusModal">
+						 Update Status
+                        </button></li>
+						<li> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#withdrawModal">
+						 Withdraw
+                        </button></li>
+						<li> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#stepDownModal">
+						 Step Down
+                        </button></li>
+						<li> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#joinClubModal">
+						 Join Club
+                        </button></li>
+						<li> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#checkMembershipModal">
+						 Check Membership
+                        </button></li>
+						<li> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#mainnetModal">
+						 Connect to mainnet
+						</button></li>
+					</ul>
+			</div>
+			
+			<!--when not connected -->
+			<div class="tools" name="toolsDivSpinner" id="toolsDivSpinner">
+				<h2>Tools</h2>
+				<div>
+				 <hr>
+				</div>
+				<div class="form-group basic">
+                    <p><center><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> connect wallet...</center></p>
+                </div>
+				<hr>
+				<p style="text-align:center"> Kindly Connect Your Wallet.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- contact and faqs -->
+<section class="container">
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+			<div class="contact">
+				<h2>Contact</h2>
+					<p><i class="fa fa-map-marker"></i> Binance Smart Chain : TestNet</p>
+					<p><i class="fa fa-check" style="font-size:15px;color:green"></i><a href="https://testnet.bscscan.com/address/0xcf77baf560431aae9e6f4e99f29a76e5cf3dea2d" target="blank">0xcf77baf560431aae9e6f4e99f29a76e5cf3dea2d</a></p>
+					<p><i class="fa fa-envelope"></i> mail@cryptoflex.club</p>
+					<p><i class="fa fa-globe"></i> https://cryptoflex.club</p>
+			</div>
+		</div>
+		
+		<div class="col-md-6 col-sm-12">
+			<div class="faqs">
+				<h2 class="white">FAQs</h2>
+				<div id="accordion">
+				  <div class="card">
+					<div class="card-header" id="headingOne">
+					  <h5 class="mb-0">
+						<button class="btn btn-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						  About Crypto Flex Club
+						</button>
+					  </h5>
+					</div>
+
+					<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+					  <div class="card-body">
+						The crypto flex club is an extreme exclusive club on the Binance Smart Chain (BSC) blockchain. The platform allows BSC users to set their status by depositing BNB
+						into the smart contract. Only the highest depositor can become the profile holder. The profile holder section is acquired on the highest bid fashion. Of 
+						course the dethroned profile holders are refunded. There will only be 100 crypto flex club members. To join the club (once per address), the cumulative active
+						profile period must meet the required period. This can be found in the My Account Info section. The required period increases as a member joins the club.
+						Get more <a href="#" data-toggle="modal" data-target="#aboutModal"> information here.</a>
+						
+					  </div>
+					</div>
+				  </div>
+				  <div class="card">
+					<div class="card-header" id="headingTwo">
+					  <h5 class="mb-0">
+						<button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						  What is in it for the club members?
+						</button>
+					  </h5>
+					</div>
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+					  <div class="card-body">
+						Being a member is currently for flexxing or showing digital wealth. The crypto flex club is very exclusive with only 100 members.
+						As a member joins, joining the club becomes even tougher. That's not all, the club members become eligible for exclusive NFT drops
+						the team is working on. Club members will always enjoy priorities when it comes to the club merchandise and governance. Being a member 
+						gives you rights to commisions the team will make through the next projects inline. Get more <a href="#" data-toggle="modal" data-target="#membersModal"> information here.</a>
+					  </div>
+					</div>
+				  </div>
+				  <div class="card">
+					<div class="card-header" id="headingThree">
+					  <h5 class="mb-0">
+						<button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+						  Future Developments
+						</button>
+					  </h5>
+					</div>
+					<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+					  <div class="card-body">
+						This project is not complete. The team will still work on improving the user interface (UI), integrate more wallets and other project
+						maintenance tasks. Most of the changes to the platform will be through the community. Club members will be voting on proposals, then the team will be 
+						implementing approved ones. Get more <a href="#" data-toggle="modal" data-target="#developmentModal"> information here.</a>
+					  </div>
+					</div>
+				  </div>
+				  
+				  <div class="card">
+					<div class="card-header" id="headingFour">
+					  <h5 class="mb-0">
+						<button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+						  Quick Summary
+						</button>
+					  </h5>
+					</div>
+					<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+					  <div class="card-body">
+						Quick information on the platform, refunds, fees, team etc. Get more <a href="#" data-toggle="modal" data-target="#summaryModal"> information here.</a>
+					  </div>
+					</div>
+				  </div>
+				  
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- modals -->
+
+<!-- update status modal -->
+<div class="modal fade" id="updateStatusModal" tabindex="-1" role="dialog" aria-labelledby="updateStatusModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateStatusModalLongTitle">Set Your Profile Status | 300 characters max</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="updateStatusModalBody">
+        <textarea class="form-control" id="updateStatusTextarea" rows="5" maxlength="300"></textarea>
+		<hr>
+		<div class="form-group">
+			<label for="inputAmount">Amount (BNB)</label>
+			<input type="number" id="inputAmount" class="form-control mx-sm-3" step ="any" aria-describedby="amountHelpInline">
+			<small id="amountHelpInline" class="text-muted">
+			  Must be greater than current stake + 0.1% Fee
+			</small>
+        </div>
+      </div>
+	  
+	  <!-- after submitting tx -->
+	  <div class="modal-body" id="updateStatusModalSpinner" style = "display: none">
+				<div>
+				 <hr>
+				</div>
+				<div class="form-group basic">
+                    <p><center><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> pending...</center></p>
+                </div>
+				<hr>
+				<p style="text-align:center"> Confirm Transaction With Your Wallet.</p>
+	 </div>
+	 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" id="updateStatusNowButton" class="btn btn-primary">Update Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- withdraw modal -->
+<div class="modal fade" id="withdrawModal" tabindex="-1" role="dialog" aria-labelledby="withdrawModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="withdrawModalLongTitle">Withdraw Your Pending Refunds</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="withdrawModalBody">
+        Withdraw your pending refunds.
+      </div>
+	  
+	   <!-- after submitting tx -->
+	  <div class="modal-body" id="withdrawModalSpinner" style = "display: none">
+				<div>
+				 <hr>
+				</div>
+				<div class="form-group basic">
+                    <p><center><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> pending...</center></p>
+                </div>
+				<hr>
+				<p style="text-align:center"> Confirm Transaction With Your Wallet.</p>
+	 </div>
+	 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="withdrawNowButton">Withdraw Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Step Down Modal -->
+<div class="modal fade" id="stepDownModal" tabindex="-1" role="dialog" aria-labelledby="stepDownModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="stepDownModalLongTitle">Step Down As Current Profile Holder</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="stepDownModalBody">
+        Step down as the current profile holder. Your Stake will be refunded to your account.
+      </div>
+	  
+	    <!-- after submitting tx -->
+	  <div class="modal-body" id="stepDownModalSpinner" style = "display: none">
+				<div>
+				 <hr>
+				</div>
+				<div class="form-group basic">
+                    <p><center><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> pending...</center></p>
+                </div>
+				<hr>
+				<p style="text-align:center"> Confirm Transaction With Your Wallet.</p>
+	 </div>
+	  
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="stepDownNowButton">Step Down Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- join club modal -->
+<div class="modal fade" id="joinClubModal" tabindex="-1" role="dialog" aria-labelledby="joinClubModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="joinClubModalLongTitle">Join The Crypto Flex Club</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="joinClubModalBody">
+        Join the most exclusive crypto club. You must have met the required active profile period.
+      </div>
+	  
+	    <!-- after submitting tx -->
+	  <div class="modal-body" id="joinClubModalSpinner" style = "display: none">
+				<div>
+				 <hr>
+				</div>
+				<div class="form-group basic">
+                    <p><center><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> pending...</center></p>
+                </div>
+				<hr>
+				<p style="text-align:center"> Confirm Transaction With Your Wallet.</p>
+	 </div>
+	 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="joinNowButton">Join Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- check membership modal -->
+<div class="modal fade" id="checkMembershipModal" tabindex="-1" role="dialog" aria-labelledby="checkMembershipModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="withdrawModalLongTitle">Check The Membership</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="checkMembershipModalBody">
+        Enter the address to check whether is a club member or not
+		<hr>
+		<textarea class="form-control" id="checkMembershipTextarea" rows="1" maxlength="42"></textarea>
+      </div>
+	  
+	    <!-- after submitting tx -->
+	  <div class="modal-body" id="checkMembershipModalSpinner" style = "display: none">
+				<div>
+				 <hr>
+				</div>
+				<div class="form-group basic">
+                    <p><center><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> checking...</center></p>
+                </div>
+				<hr>
+				<p style="text-align:center"> Just a few seconds...</p>
+	 </div>
+	 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="checkMembershipButton">Check Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- mainnet modal -->
+<div class="modal fade" id="mainnetModal" tabindex="-1" role="dialog" aria-labelledby="mainnetModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mainentModalLongTitle">Connect to the mainnet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="mainnetModalBody">
+       Are you sure you want to connect to the mainnet?
+	   <hr>
+	   You will be spending real BNB.
+		<hr>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="mainnetButton">Connect to mainnet</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- About Modal -->
+<div class="modal fade modalbox" id="aboutModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">About Crypto Flex Club</h5>
+                <a href="javascript:;" data-dismiss="modal">Close</a>
+            </div>
+            <div class="modal-body">
+                 <p>
+                   Get to know us more
+                </p>
+				<h2> 1. What is the purpose of this platform?</h2>
+                <p>
+                    Currently this platform serves as a means for show off or flexxing that crypto muscle.
+					In the crypto world, holders need a safe and fun way to show off their digital assets.
+					What's the point of being crypto-informed; crypto rich and can't show it off?
+                </p>
+				<h2>2. What is the profile holder?</h2>
+                <p>
+					There is only one profile holder at a time. The profile holder is the person who deposits
+					the most Binance Coin (BNB). The profile holder can then update the status. The status is a 300 characters maximum
+					paragraph. This will always be displayed on the profile holder section. The period a 
+					person holds as the profile holder decreases the period required to join the 100 Members club.
+					Remember once a person joins the club, the period required is increased.
+					Imagine depositing 100 BNB (refundable) just to post: "Follow me on twitter @cryptoflexclub", now that's a FLEXXX!
+				</p>
+
+				<h2>3. The Refunds</h2>
+				<p>
+					The platform only charges a fee when you become the profile holder. All other services are free. The fee is
+					indicated in the Club Information Section. All deposits are refunded and can be seen in the My Account Info as
+					 pending Refunds. If you are the current profile holder, you must step down first before withdrawing your deposit.
+				</p>
+
+				<h2>4. What happens when the current profile holder steps down? </h2>
+				<p>
+					The profile holder is refunded. The current Stake required to be a profile holder is reset to the minimum. The status 
+					is updated to the default Status. The default status is set by the dev team. This provides a good opportunity for a 
+					new profile holder. Remember, your active profile period is updated after you are dethroned or you step down.
+				</p>
+
+				<h2>5. Are my funds safe?</h2>
+				<p>
+					The funds are secured and protected by the smart contract. The dev team cannot access user deposits but only the 
+					fees collected. All deposits are also refunded and can be withdrawn anytime. The deposited funds never leave the 
+					smart contract.
+
+				</p>
+
+				<h2>6. I am not convinced</h2>
+				<p>
+					To provide more confidence to our users, we used a simple and readable smart contract language. Our smart contract is
+					only 450 lines of code long, well documented and written in python. Anyone with basic programming skills can audit the 
+					smart contract and publicly air their opinions. The dev team behind the project is composed of 5 experienced python software
+					engineers. 
+				</p>
+
+				<h2>7. Getting Started</h2>
+				<p>
+					Connect your wallet. MetaMask is recommended for a smooth user experience. Once you connect your MetaMask, the following sections
+					will now be accessible. The profile holder section, my account info section, club info section and tools sections. Your journey begins
+					by becoming the profile holder. Just click update status and enter your own status, the amount in ETH to deposit. Remember, the amount
+					plus network fees will be deducted from your account. Confirm transaction with your wallet and voila! New profile holder in town!
+				</p>
+
+				<h2>8. What if this website is down?</h2>
+                <p>
+					The smart contract can still be accessed via Etherscan, Remix IDE and even through your local machine, just download the webpage 
+					from our github and host it locally. The only thing required is the contract address. The dev team is always ready to help.
+
+				</p>
+				
+				<h2>9. Is the team anonymous?</h2>
+                <p>
+					Due to current contracts with some of the leading DeFi projects, we cannot reveal our identities yet. Still need that bread!
+					However, if there is need for the team to reveal itself, the club members will be first ones to meet us. 
+					The team will not be liable to the content posted on the status. You know people be wilding out in this industry.
+
+				</p>
+
+				<h2>10. More about the required profile active period</h2>
+                <p>
+					Joining the 100 members exclusive club is not easy. It requires your profile to be active for a set duration. The required time is 
+					shown in the club information section. The active profile period is cumulative, it is added every second your profile is active.
+					The time remaining before you can join the club is indicated in my account info section. Remember, once a member joins the club, 
+					the required period is increased. For example, if member number 1 joins the club after 1,000 active profile seconds, the second 
+					member might require 2,000 active profile seconds. The active profile duration is cumulative and not a one long continous duration.
+				</p>
+				
+				<h2>11. The Tools?</h2>
+                <p>
+					The platform provides tools to access services offered by the platform. You can update your status, withdraw your pending refunds,
+					step down as the current holder, join the crypto flex club and check whether an account belongs to a club member or not. More tools 
+					can be provided upon request by the crypto flex club community.
+				</p>
+				
+				<h2>12. Connect with us</h2>
+                <p>
+					Check the contact section for ways of reaching us. We are on twitter, telegram and email. We are always excited to hear from you.
+				</p>
+            </div>
+			
+			<div class="modal-footer">
+                <a href="javascript:;" data-dismiss="modal">Close</a>
+            </div>
+			
+        </div>
+    </div>
+</div>
+
+<!-- * About Modal -->
+
+<!-- Members Modal -->
+<div class="modal fade modalbox" id="membersModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">What's in it for the club members?</h5>
+                <a href="javascript:;" data-dismiss="modal">Close</a>
+            </div>
+            <div class="modal-body">
+                 <p>
+                   Being a club member comes with it perks
+                </p>
+				<h2> 1. NFT Airdrops?</h2>
+                <p>
+                    The club members will be the first recipients of the exclusive NFT projects the
+					team is currently working on. Of course, only 100 for the club Members. If the platform is to 
+					have a token, the club members will be airdropped majority of the tokens.
+                </p>
+				<h2>2. Governance?</h2>
+                <p>
+					All changes to the platform will go through the club members. Members who joined earlier 
+					will have more voting power.
+				</p>
+
+				<h2>3. The Merch</h2>
+				<p>
+					Exclusive merch for the club members will be provided by the team. The club members will 
+					deciding on the designs the team proposes. Flex in the digital world and in the real world 
+					too.
+				</p>
+
+				<h2>4. Commission from next projects </h2>
+				<p>
+					The team is currently working on the biggest decentralized casino. A portion of the fees earned
+					by the platform will go to the club members. Club members will of course have VIP experiences in 
+					the casino. The other project is a smart portfolio manager.
+				</p>
+
+            </div>
+			
+			<div class="modal-footer">
+                <a href="javascript:;" data-dismiss="modal">Close</a>
+            </div>
+			
+        </div>
+    </div>
+</div>
+
+<!-- * Members Modal -->
+
+<!-- Development Modal -->
+<div class="modal fade modalbox" id="developmentModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Further Development Of the project</h5>
+                <a href="javascript:;" data-dismiss="modal">Close</a>
+            </div>
+            <div class="modal-body">
+                 <p>
+                   We are not done yet.
+                </p>
+				<h2> 1. Platform UI</h2>
+                <p>
+                    The user interface still requires maintance from time to time for a smoooth
+					user experience. Suggestions from the community.
+                </p>
+				<h2>2. Governance?</h2>
+                <p>
+					Club members to be given voting power to pass or drop proposals. For example,
+					platform token, airdrops and changes to the platform.
+				</p>
+
+				<h2>3. More Wallets</h2>
+				<p>
+					Integration of more wallets to reach more crypto users.
+				</p>
+
+				<h2>4. Other projects </h2>
+				<p>
+					The team is currently working on the biggest decentralized casino, NFTs and
+					smart portfolio manager. All these projects will be linked somehow.
+				</p>
+
+            </div>
+			
+			<div class="modal-footer">
+                <a href="javascript:;" data-dismiss="modal">Close</a>
+            </div>
+			
+        </div>
+    </div>
+</div>
+
+<!-- * Development Modal -->
+
+<!-- Summary Modal -->
+<div class="modal fade modalbox" id="summaryModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Quick Summary</h5>
+                <a href="javascript:;" data-dismiss="modal">Close</a>
+            </div>
+            <div class="modal-body">
+                 <p>
+                   Just Short Answers, check other FAQs for more details
+                </p>
+				<h2> 1. Platform Purpose</h2>
+                <p>
+                    Currently just for crypto flexxing or showing off.
+                </p>
+				<h2>2. Fees?</h2>
+                <p>
+					Indicated in the club info section.
+				</p>
+
+				<h2>3. Refunds</h2>
+				<p>
+					All deposits are refunded.
+				</p>
+
+				<h2>4. Smart contract safety</h2>
+				<p>
+					Simple readable and auditable smart contract by experienced python developers.
+				</p>
+				
+				<h2>5. Why team is anonymous</h2>
+				<p>
+					Due to contract at a leading DeFi platform and not be liable for status content.
+				</p>
+				
+				<h2>6. Other ways to access platform</h2>
+				<p>
+					Etherscan, Remix IDE, localhost.
+				</p>
+				
+				<h2>7. Club Members incentives</h2>
+				<p>
+					NFT airdrops, merch, governance and commission from future projects
+				</p>
+				
+				<h2>8. Further developments</h2>
+				<p>
+					UI, more wallets, governance 
+				</p>
+
+            </div>
+			
+			<div class="modal-footer">
+                <a href="javascript:;" data-dismiss="modal">Close</a>
+            </div>
+			
+        </div>
+    </div>
+</div>
+
+<!-- * Summary Modal -->
+
+
+
+<!-- footer section -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<p>Copyright &copy; 2021 Crypto Flex Club</p>
+				<ul class="social-icons">
+					<li><a href="https://twitter.com/Cryptoflexclub" target="blank" class="fa fa-twitter"></a></li>
+					<li><a href="t.me/cryptoflexclub" target="blank" class="fa fa-group"></a></li>
+					<li><a href="https://github.com/RigeMuskler" target="blank" class="fa fa-github"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- javascript js -->	
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>	
+<script src="js/web3.min.js"></script>	
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/bsctestnet.js"></script>
+
+</body>
+</html>
