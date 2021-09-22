@@ -173,6 +173,9 @@
 						<li> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#checkMembershipModal">
 						 Check Membership
                         </button></li>
+						<li> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#testnetModal">
+						 Connect to testnet
+                        </button></li>
 					</ul>
 			</div>
 			
@@ -461,6 +464,31 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="checkMembershipButton">Check Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- testnet modal -->
+<div class="modal fade" id="testnetModal" tabindex="-1" role="dialog" aria-labelledby="testnetModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="testnetModalLongTitle">Connect to the testnet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="testnetModalBody">
+        You will be connected to the smart contract deployed on the Ropsten testnet.
+		You are required to connect to the Ropsten testnet network.
+		You are required to obtain TEST ETH from <a href="https://faucet.ropsten.be/" target="blank">https://faucet.ropsten.be/</a>
+		<hr>
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="testnetButton">Connect to testnet Now</button>
       </div>
     </div>
   </div>
