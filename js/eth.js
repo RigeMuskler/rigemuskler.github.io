@@ -433,7 +433,7 @@ $(function(){
 		
 		//connect to the testnet
 		$('#testnetButton').click(function(){
-			window.location.href = 'https://cryptoflexclub/testnet/ethtestnet.html'
+			window.location.href = 'https://cryptoflex.club/testnet/ethtestnet.html'
 		});
 		
 		
