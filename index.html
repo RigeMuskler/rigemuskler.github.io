@@ -39,7 +39,6 @@
 		<button type="button" class="btn btn-success" name="connectedWalletButton" id="connectedWalletButton" style="display: none" disabled>Connected...</button>
 		<a href="eth.html" style="display: none"><button class="btn btn-outline-success" type="button">Switch to ETH</button></a></span>
 		<hr>
-		
 	</div>
 </div>
 
@@ -172,6 +171,9 @@
                         </button></li>
 						<li> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#checkMembershipModal">
 						 Check Membership
+                        </button></li>
+						<li> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#testnetModal">
+						 Connect to testnet
                         </button></li>
 					</ul>
 			</div>
@@ -465,6 +467,34 @@
     </div>
   </div>
 </div>
+
+
+<!-- testnet modal -->
+<div class="modal fade" id="testnetModal" tabindex="-1" role="dialog" aria-labelledby="testnetModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="testnetModalLongTitle">Connect to the testnet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="testnetModalBody">
+        You will be connected to the smart contract deployed on the BSC testnet.
+		You are required to connect to the BSC testnet network.
+		You are required to obtain TEST BNB from <a href="https://testnet.binance.org/faucet-smart" target="blank">https://testnet.binance.org/faucet-smart</a>
+		Learn how to add BSC testnet to MetaMask <a href="https://medium.com/spartanprotocol/how-to-connect-metamask-to-bsc-testnet-7d89c111ab2" target= "blank">here</a>
+		<hr>
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="testnetButton">Connect to testnet Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <!-- About Modal -->
