@@ -432,7 +432,7 @@ $(function(){
 		
 		//connect to the testnet
 		$('#testnetButton').click(function(){
-			window.location.href = 'https://cryptoflexclub/testnet/bsctestnet.html'
+			window.location.href = 'https://cryptoflex.club/testnet/bsctestnet.html'
 		});
 		
 
