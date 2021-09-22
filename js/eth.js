@@ -431,6 +431,12 @@ $(function(){
     	    
         });
 		
+		//connect to the testnet
+		$('#testnetButton').click(function(){
+			window.location.href = 'https://cryptoflexclub/testnet/ethtestnet.html'
+		});
+		
+		
 
 		$('#checkMembershipButton').click(async function(){
         	if($('#checkMembershipTextarea').val() !== ""){
