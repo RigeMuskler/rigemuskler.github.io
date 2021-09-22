@@ -433,7 +433,7 @@ $(function(){
 		
 		//connect to the mainnet
 		$('#mainnetButton').click(function(){
-			window.location.href = 'https://cryptoflexclub/'
+			window.location.href = 'https://cryptoflex.club/'
 		});
 		
 
