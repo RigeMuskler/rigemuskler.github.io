@@ -430,6 +430,11 @@ $(function(){
     	    
         });
 		
+		//connect to the testnet
+		$('#testnetButton').click(function(){
+			window.location.href = 'https://cryptoflexclub/testnet/bsctestnet.html'
+		});
+		
 
 		$('#checkMembershipButton').click(async function(){
         	if($('#checkMembershipTextarea').val() !== ""){
